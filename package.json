@@ -1,0 +1,38 @@
+{
+  "name": "kiosque",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Le Kiosque — socle libre pour les journaux étudiants",
+  "license": "GPL-2.0-only",
+  "type": "module",
+  "bin": {
+    "kiosque": "packages/pipeline/src/cli.ts"
+  },
+  "scripts": {
+    "kiosque": "node packages/pipeline/src/cli.ts",
+    "demo:sync": "node packages/pipeline/src/cli.ts sync --root examples/demo-journal",
+    "demo:build": "node packages/pipeline/src/cli.ts build --root examples/demo-journal",
+    "demo:serve": "python3 -m http.server 8080 --directory examples/demo-journal/dist",
+    "site": "node tools/build-site.mjs",
+    "build": "npm run site",
+    "test": "node --test 'tests/**/*.test.ts'",
+    "test:continuity": "node --test tests/continuity.test.ts",
+    "test:navigateur": "BASE=/autre-nom npm run site && playwright test",
+    "typecheck": "tsc --noEmit",
+    "radar:reference:check": "node tools/check-radar-source-view.mjs",
+    "demo:photos": "node tools/seed-demo-photos.mjs",
+    "demo:match-photos": "node tools/match-article-photos.mjs",
+    "demo:portraits": "node tools/seed-author-portraits.mjs"
+  },
+  "engines": {
+    "node": ">=22.18"
+  },
+  "dependencies": {
+    "marked": "^18.0.7",
+    "yaml": "^2.9.0"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.5.4",
+    "@playwright/test": "1.62.0"
+  }
+}
