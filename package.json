@@ -28,11 +28,11 @@
     "node": ">=22.18"
   },
   "dependencies": {
-    "marked": "^18.2.0",
+    "marked": "^18.2.1",
     "yaml": "^2.9.1"
   },
   "devDependencies": {
-    "@electric-sql/pglite": "0.5.16",
+    "@electric-sql/pglite": "0.5.17",
     "@playwright/test": "1.65.1"
   }
 }
